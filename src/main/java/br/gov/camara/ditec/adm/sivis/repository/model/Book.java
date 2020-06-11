@@ -1,4 +1,4 @@
-package com.javatechie.audit.api;
+package br.gov.camara.ditec.adm.sivis.repository.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
