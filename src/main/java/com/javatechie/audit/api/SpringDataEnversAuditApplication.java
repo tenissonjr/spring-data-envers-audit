@@ -1,5 +1,7 @@
 package com.javatechie.audit.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -39,6 +41,10 @@ public class SpringDataEnversAuditApplication {
         System.out.println(repository.findLastChangeRevision(id));
     }
 
+    @GetMapping("/books")
+    public List<Book> listBooks(){
+        return repository.findAll();
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(SpringDataEnversAuditApplication.class, args);
