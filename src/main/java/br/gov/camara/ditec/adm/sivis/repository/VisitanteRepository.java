@@ -4,9 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.history.RevisionRepository;
 import org.springframework.stereotype.Repository;
 
-import br.gov.camara.ditec.adm.sivis.repository.model.Book;
+import br.gov.camara.ditec.adm.sivis.repository.model.Visitante;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book, Integer> 
-    ,RevisionRepository<Book, Integer, Integer>{
+public interface VisitanteRepository extends JpaRepository<Visitante, Integer> 
+//    ,RevisionRepository<Visitante, Integer, Integer>
+{
 }
