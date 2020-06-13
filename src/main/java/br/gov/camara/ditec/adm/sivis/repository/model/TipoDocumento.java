@@ -18,13 +18,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Tolerate;
 
-
+@Entity
 @Table(name = "Tipo_Documento")
 @Getter
 @Setter
 @Builder
 @EqualsAndHashCode(callSuper = false)
-public class TipoDocumento {
+public class TipoDocumento implements java.io.Serializable {
 
 	private static final long serialVersionUID = -4083738485316369342L;
 	

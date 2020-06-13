@@ -14,12 +14,12 @@ import lombok.EqualsAndHashCode;
 import lombok.Setter;
 import lombok.experimental.Tolerate;
 
-
+@Entity
 @Table(name = "viw_Pais")
 @Setter
 @Builder
 @EqualsAndHashCode(callSuper = false)
-public class Pais {
+public class Pais implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 3266550626196775059L;
 	

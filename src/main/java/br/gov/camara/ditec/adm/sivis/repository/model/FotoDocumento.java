@@ -17,13 +17,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Tolerate;
 
-
+@Entity
 @Table(name = "Foto_Documento")
 @Builder
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
-public class FotoDocumento {
+public class FotoDocumento implements java.io.Serializable {
 
 	private static final long serialVersionUID = -4301351044511453973L;
 	

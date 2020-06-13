@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
 
 import lombok.Builder;
@@ -19,13 +20,14 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-
+@Entity
 @Table(name = "Foto_Visitante")
 @Builder
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper=false)
-
+@Audited
+@AuditTable(value = "Foto_Visitante_Auditoria")
 public class FotoVisitante {
 
 	@Id

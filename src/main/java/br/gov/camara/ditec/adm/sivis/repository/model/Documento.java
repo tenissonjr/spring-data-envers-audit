@@ -20,14 +20,15 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-
+@Entity
 @Table(name = "Documento")
 @Data
 @EqualsAndHashCode
-public class Documento {
+public class Documento implements java.io.Serializable {
 
-	private static final long serialVersionUID = -2176533437041033818L;
 	
+	private static final long serialVersionUID = 3263714031194237125L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ide_documento")

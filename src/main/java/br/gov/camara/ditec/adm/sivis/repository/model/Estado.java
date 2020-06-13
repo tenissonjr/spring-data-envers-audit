@@ -13,13 +13,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Tolerate;
 
-
+@Entity
 @Table(name = "Estado")
 @Getter
 @Setter
 @Builder
 @EqualsAndHashCode(callSuper = false)
-public class Estado  {
+public class Estado implements java.io.Serializable {
 
 	private static final long serialVersionUID = 5126336175963024620L;
 

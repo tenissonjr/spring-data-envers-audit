@@ -1,15 +1,21 @@
 package br.gov.camara.ditec.adm.sivis.repository.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,6 +27,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=false)
 @Audited
+@AuditTable(value = "Visitante_Auditoria")
 public class Visitante {
 
 	@Id
@@ -37,6 +44,7 @@ public class Visitante {
 	@Column(name = "des_telefone", nullable = true, length = 30)
 	private String telefoneVisitante;
 	
+	@NotAudited
 	@Column(name = "cod_ponto_cadastrador", nullable = false)
 	private String pontoCadastrador;
 	
@@ -44,11 +52,12 @@ public class Visitante {
 	private LocalDateTime dataCadastro;
 	
 
-	//@OneToMany(mappedBy = "visitante", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	//private List<FotoVisitante> fotosVisitante;
+	@OneToMany(mappedBy = "visitante", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<FotoVisitante> fotosVisitante;
 	
-	//@OneToMany(mappedBy = "visitante", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
-	//private List<Documento> documentos;
+	@NotAudited
+	@OneToMany(mappedBy = "visitante", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+	private List<Documento> documentos;
 
 	
 }
