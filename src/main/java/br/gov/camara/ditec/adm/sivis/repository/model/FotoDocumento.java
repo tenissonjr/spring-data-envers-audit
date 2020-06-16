@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,6 +25,7 @@ import lombok.experimental.Tolerate;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = false)
+@Audited
 public class FotoDocumento implements java.io.Serializable {
 
 	private static final long serialVersionUID = -4301351044511453973L;

@@ -17,6 +17,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -24,6 +27,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "Documento")
 @Data
 @EqualsAndHashCode
+@Audited
 public class Documento implements java.io.Serializable {
 
 	
@@ -36,14 +40,17 @@ public class Documento implements java.io.Serializable {
 	
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "ide_pais", nullable = false)
+	@NotAudited
 	private Pais pais;
 	
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "ide_tipo_documento", nullable = false)
+	@NotAudited
 	private TipoDocumento tipoDocumento;
 	
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "ide_origem", nullable = false)
+	@NotAudited
 	private Origem origemDocumento;
 	
 	@Column(name = "num_documento")
@@ -60,6 +67,7 @@ public class Documento implements java.io.Serializable {
 	
 	@OneToOne(cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "ide_estado", nullable = true)
+	@NotAudited
 	private Estado estadoEmissao;
 	
 	@Column(name = "nom_conselho_responsavel")
@@ -69,6 +77,7 @@ public class Documento implements java.io.Serializable {
 	private Boolean isPrincipal;
 	
 	@Column(name = "cod_ponto_cadastrador", nullable = false)
+	@NotAudited
 	private String pontoCadastrador;
 	
 	@Column(name = "dat_cadastro", nullable = false)
